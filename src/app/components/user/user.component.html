@@ -9,38 +9,14 @@
 <table class="table">
   <thead>
     <tr>
+      <th>User Id</th>
       <th>Id</th>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Street</th>
-      <th>Suite</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th>Lat</th>
-      <th>Lng</th>
-      <th>Phone</th>
-      <th>Website</th>
-      <th>Name</th>
-      <th>Catch Phrase</th>
-      <th>BS</th>
+      <th>Title</th>
     </tr>
   </thead>
   <tr *ngFor="let user of users">
+    <td>{{ user.userId }}</td>
     <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.address.street }}</td>
-    <td>{{ user.address.suite }}</td>
-    <td>{{ user.address.city }}</td>
-    <td>{{ user.address.zipcode }}</td>
-    <td>{{ user.address.geo.lat }}</td>
-    <td>{{ user.address.geo.lng }}</td>
-    <td>{{ user.phone }}</td>
-    <td>{{ user.website }}</td>
-    <td>{{ user.company.name }}</td>
-    <td>{{ user.company.catchPhrase }}</td>
-    <td>{{ user.company.bs }}</td>
+    <td>{{ user.title }}</td>
   </tr>
 </table>

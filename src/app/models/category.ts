@@ -1,5 +1,6 @@
-export interface User {
+export interface Category {
   userId: number;
   id: number;
   title: string;
+  body: string;
 }

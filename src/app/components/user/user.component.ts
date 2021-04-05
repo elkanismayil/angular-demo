@@ -1,8 +1,6 @@
 import { UserService } from './../../services/user.service';
-import { UserResponseModel } from './../../models/userResponseModel';
 import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',

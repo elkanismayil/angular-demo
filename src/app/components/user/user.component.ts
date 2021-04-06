@@ -1,6 +1,7 @@
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -17,14 +18,30 @@ export class UserComponent implements OnInit {
   //   success: true,
   // };
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['userId']) {
+        this.getUsersByCategory(params['userId']);
+      } else {
+        this.getUsers();
+      }
+    });
   }
 
   getUsers() {
     this.userService.getUsers().subscribe((response) => {
+      this.users = response;
+      this.dataLoaded = true;
+    });
+  }
+
+  getUsersByCategory(userId: number) {
+    this.userService.getUserByUserId(userId).subscribe((response) => {
       this.users = response;
       this.dataLoaded = true;
     });

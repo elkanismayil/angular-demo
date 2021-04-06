@@ -1,6 +1,7 @@
 <ul class="list-group">
   <li
     (click)="setCurrentCategory(category)"
+    routerLink="/users/category/{{ category.userId }}"
     *ngFor="let category of categories"
     [class]="getCurrentCategoryClass(category)"
   >
@@ -8,4 +9,32 @@
   </li>
 </ul>
 
-<h5 *ngIf="currentCategory">{{ currentCategory.id }} selected</h5>
+<!-- <div
+  *ngIf="currentCategory"
+  class="position-fixed bottom-0 end-0 p-3"
+  style="z-index: 5"
+>
+  <div
+    id="liveToast"
+    class="toast hide"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="..." />
+      <strong class="me-auto">Bootstrap</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">
+      {{currentCategory.id}} Selected successfully!
+    </div>
+  </div>
+</div> -->
+
+<div class="alert alert-success" role="alert" *ngIf="currentCategory">{{ currentCategory.id }} selected</div>

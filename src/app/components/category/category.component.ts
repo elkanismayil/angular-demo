@@ -1,7 +1,7 @@
+import { ToastrService } from 'ngx-toastr';
 import { Category } from './../../models/category';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
-// import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-category',
@@ -12,7 +12,10 @@ export class CategoryComponent implements OnInit {
   categories: Category[] = [];
   currentCategory: Category;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -34,5 +37,9 @@ export class CategoryComponent implements OnInit {
     } else {
       return 'list-group-item';
     }
+  }
+
+  showToastr(category: Category) {
+    this.toastr.success(category.body);
   }
 }

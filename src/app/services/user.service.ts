@@ -8,11 +8,17 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 export class UserService {
-  apiUrl = 'https://jsonplaceholder.typicode.com/albums';
+  apiUrl = 'https://jsonplaceholder.typicode.com/';
 
   constructor(private httpClient: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.apiUrl);
+    let newPath = this.apiUrl + 'albums';
+    return this.httpClient.get<User[]>(newPath);
+  }
+
+  getUserByUserId(userId: number): Observable<User[]> {
+    let newPath = this.apiUrl + 'users/category/?userId=' + userId;
+    return this.httpClient.get<User[]>(newPath);
   }
 }

@@ -6,17 +6,28 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="filterText" class="form-label">Search user</label>
+  <input type="text" [(ngModel)] = "filterText" class="form-control" id="filterText" placeholder="search user">
+</div>
+
+<div>
+  {{filterText}} searching...
+</div>
+
 <table class="table">
   <thead>
     <tr>
       <th>User Id</th>
       <th>Id</th>
+      <th>Other Id(something)</th>
       <th>Title</th>
     </tr>
   </thead>
   <tr *ngFor="let user of users">
     <td>{{ user.userId }}</td>
     <td>{{ user.id }}</td>
-    <td>{{ user.title }}</td>
+    <td>{{ user.id |vatAdded:18}}</td>
+    <td>{{ user.title | uppercase }}</td>
   </tr>
 </table>

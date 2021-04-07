@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserComponent implements OnInit {
   users: User[] = [];
   dataLoaded = false;
-
+  filterText = '';
   // userResponseModel: UserResponseModel = {
   //   data: this.users,
   //   message: '',

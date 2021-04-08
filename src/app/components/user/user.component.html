@@ -8,11 +8,17 @@
 
 <div class="mb-3">
   <label for="filterText" class="form-label">Search user</label>
-  <input type="text" [(ngModel)] = "filterText" class="form-control" id="filterText" placeholder="search user">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="search user"
+  />
 </div>
 
-<div>
-  {{filterText}} searching...
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} searching...
 </div>
 
 <table class="table">
@@ -24,10 +30,10 @@
       <th>Title</th>
     </tr>
   </thead>
-  <tr *ngFor="let user of users">
+  <tr *ngFor="let user of users | filterPipe:filterText">
     <td>{{ user.userId }}</td>
     <td>{{ user.id }}</td>
-    <td>{{ user.id |vatAdded:18}}</td>
+    <td>{{ user.id | vatAdded: 18 }}</td>
     <td>{{ user.title | uppercase }}</td>
   </tr>
 </table>

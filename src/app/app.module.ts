@@ -12,9 +12,10 @@ import { CategoryComponent } from './components/category/category.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, CategoryComponent, NaviComponent, VatAddedPipe, FilterPipePipe],
+  declarations: [AppComponent, UserComponent, CategoryComponent, NaviComponent, VatAddedPipe, FilterPipePipe, CartSummaryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,8 +23,8 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot({
-      timeOut: 1000,
-      positionClass: 'toast-bottom-right',
+      timeOut: 2000,
+      positionClass: 'toast-bottom-left',
       preventDuplicates: true,
       progressBar: true,
     }),

@@ -28,12 +28,18 @@
       <th>Id</th>
       <th>Other Id(something)</th>
       <th>Title</th>
+      <th></th>
     </tr>
   </thead>
-  <tr *ngFor="let user of users | filterPipe:filterText">
-    <td>{{ user.userId }}</td>
-    <td>{{ user.id }}</td>
-    <td>{{ user.id | vatAdded: 18 }}</td>
-    <td>{{ user.title | uppercase }}</td>
-  </tr>
+
+  <tbody>
+    <tr *ngFor="let user of users | filterPipe:filterText">
+      <td>{{ user.userId }}</td>
+      <td>{{ user.id }}</td>
+      <td>{{ user.id | vatAdded: 18 }}</td>
+      <td>{{ user.title | uppercase }}</td>
+      <td><button (click) = "addToCart(user)" type="button" class="btn btn-success">Add to Cart</button></td>
+    </tr>
+  </tbody>
+
 </table>

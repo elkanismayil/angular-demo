@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,13 +16,23 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, CategoryComponent, NaviComponent, VatAddedPipe, FilterPipePipe, CartSummaryComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    UserComponent,
+    CategoryComponent,
+    NaviComponent,
+    VatAddedPipe,
+    FilterPipePipe,
+    CartSummaryComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-bottom-left',

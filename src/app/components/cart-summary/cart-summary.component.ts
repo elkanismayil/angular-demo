@@ -1,3 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
+import { User } from './../../models/user';
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cartItem';
 
@@ -7,9 +10,23 @@ import { CartItem } from 'src/app/models/cartItem';
   styleUrls: ['./cart-summary.component.css'],
 })
 export class CartSummaryComponent implements OnInit {
-  cartItems: CartItem[];
+  cartItems: CartItem[] = [];
 
-  constructor() {}
+  constructor(
+    private cartService: CartService,
+    private toastr: ToastrService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCart();
+  }
+
+  getCart() {
+    this.cartItems = this.cartService.list();
+  }
+
+  removeFromCart(user: User) {
+    this.cartService.removeFromCart(user);
+    this.toastr.error(user.id.toString() + ' deleted from cart', 'Deleted');
+  }
 }

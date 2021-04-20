@@ -13,9 +13,10 @@ import { NaviComponent } from './components/navi/navi.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, CategoryComponent, NaviComponent, VatAddedPipe, FilterPipePipe, CartSummaryComponent],
+  declarations: [AppComponent, UserComponent, CategoryComponent, NaviComponent, VatAddedPipe, FilterPipePipe, CartSummaryComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

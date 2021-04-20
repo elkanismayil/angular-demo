@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user';
@@ -22,7 +23,8 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +56,7 @@ export class UserComponent implements OnInit {
       this.toastr.error('Cannot added to cart', user.id.toString());
     } else {
       this.toastr.success('Added to Cart', 'Given ID ' + user.id.toString());
+      this.cartService.addToCart(user);
     }
   }
 }
